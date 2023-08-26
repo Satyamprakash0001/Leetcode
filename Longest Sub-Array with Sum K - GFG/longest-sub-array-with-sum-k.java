@@ -48,7 +48,9 @@ class Array {
 
 class Solution{
     
-   
+    
+    // slightly different from largest subarray with sum 0
+    
     // Function for finding maximum and value pair
     public static int lenOfLongSubarr (int A[], int N, int K) {
         //Complete the function
