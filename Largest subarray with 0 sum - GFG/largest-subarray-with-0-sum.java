@@ -29,31 +29,23 @@ class MaxLenZeroSumSub
 
 class GfG
 {
-    // approach
-    // idea is to use prefix sum
-    // if prefix sum till index i ==k && prefix summ till index j is also k (i<j)
-    // then sum between indexes i& j is 0 and length of this subarray is j-i; 
     int maxLen(int arr[], int n)
     {
         // Your code here
         Map<Integer, Integer> hm = new HashMap<>();
         
+        int maxLength = 0;
         int sum = 0;
-        int longest = 0;
-        
-        for(int i=0; i<arr.length; i++){
-            sum = sum + arr[i];
-            if(sum == 0){
-                longest = i+1;
-            }
+        for(int i=0; i<n; i++){
+            sum += arr[i];
+            if(sum == 0) maxLength = i+1;
             else if(hm.containsKey(sum)){
-                if(i-hm.get(sum)> longest) longest = i-hm.get(sum);
+                if(i - hm.get(sum) > maxLength) maxLength = i - hm.get(sum);
             }
             else{
                 hm.put(sum, i);
             }
         }
-        
-        return longest;
+        return maxLength;
     }
 }
