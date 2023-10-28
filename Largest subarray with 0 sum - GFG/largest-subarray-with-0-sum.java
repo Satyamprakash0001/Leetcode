@@ -34,18 +34,19 @@ class GfG
         // Your code here
         Map<Integer, Integer> hm = new HashMap<>();
         
-        int maxLength = 0;
         int sum = 0;
-        for(int i=0; i<n; i++){
+        int largest = 0;
+        for(int i=0; i< arr.length; i++){
             sum += arr[i];
-            if(sum == 0) maxLength = i+1;
+            if(sum == 0) largest = i+1;
             else if(hm.containsKey(sum)){
-                if(i - hm.get(sum) > maxLength) maxLength = i - hm.get(sum);
+                if(i - hm.get(sum) > largest) largest = i - hm.get(sum);
             }
             else{
                 hm.put(sum, i);
             }
         }
-        return maxLength;
+        
+        return largest;
     }
 }
