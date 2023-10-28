@@ -39,10 +39,9 @@ class Solution {
     boolean hasArrayTwoCandidates(int arr[], int n, int x) {
         // code here
         Map<Integer, Integer> hm = new HashMap<>();
-        
         for(int i=0; i<arr.length; i++){
-            if(hm.containsKey(x-arr[i])) return true;
-            hm.put(arr[i],i);
+            if(hm.containsKey(x - arr[i])) return true;
+            hm.put(arr[i], i);
         }
         return false;
     }
