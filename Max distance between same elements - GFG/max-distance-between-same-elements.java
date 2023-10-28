@@ -29,16 +29,15 @@ class Solution
 {
     int maxDistance(int arr[], int n)
     {
-	// Your code here
-        HashMap<Integer, Integer> hm = new HashMap<>();
-        
-        int maxDis = 0;
-        for(int i=0; i<arr.length; i++){
-            if(hm.containsKey(arr[i])){
-                if(i - hm.get(arr[i]) > maxDis) maxDis = i - hm.get(arr[i]);
-            }
-            else hm.put(arr[i],i);
-        }
-        return maxDis;
+	    // Your code here
+	    Map<Integer, Integer> hm = new HashMap<>();
+	    int max = 0;
+	    for(int i=0; i<arr.length; i++){
+	        if(hm.containsKey(arr[i])){
+	            if(i - hm.get(arr[i]) > max) max = i - hm.get(arr[i]);
+	        }
+	        else hm.put(arr[i], i);
+	    }
+	    return max;
     }
 }
