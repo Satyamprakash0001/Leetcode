@@ -47,20 +47,15 @@ class GFG {
 
 class Compute {
     public String isSubset( long a1[], long a2[], long n, long m) {
+        Map<Long, Integer> hm = new HashMap<>();
         
-        Map<Long, Integer> hm1 = new HashMap<>();
-        Map<Long, Integer> hm2 = new HashMap<>();
-        
-        for(int i=0; i<a1.length; i++){
-            hm1.put(a1[i], hm1.getOrDefault(a1[i], 0) + 1);
-        }
-        
+        for(int i=0; i<a1.length; i++)
+            hm.put(a1[i], hm.getOrDefault(a1[i], 0) + 1);
+            
         for(int i=0; i<a2.length; i++){
-            hm2.put(a2[i], hm2.getOrDefault(a2[i], 0) + 1);
-            if(!hm1.containsKey(a2[i])) return "No";
-            else{
-                if(hm1.get(a2[i]) < hm2.get(a2[i])) return "No";
-            }
+            if(!hm.containsKey(a2[i])) return "No";
+            if(hm.get(a2[i]) == 0) return "No";
+            hm.put(a2[i], hm.get(a2[i]) - 1);
         }
         
         return "Yes";
